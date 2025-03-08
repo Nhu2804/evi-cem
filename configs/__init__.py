@@ -101,7 +101,7 @@ class Config(dict):
 
 def get_config():
     config = Config()
-    parser = argparse.ArgumentParser("evi-CEM")
+    parser = argparse.ArgumentParser("CBM")
     parser.add_argument("--config", type=str, required=True, help="config file")
     args, opts = parser.parse_known_args()
     config.load(args.config, recursive=True)

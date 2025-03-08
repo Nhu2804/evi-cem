@@ -1,11 +1,11 @@
 import torch
-from .evi_clm import Evi_CLM
-from .evi_cem import Evidential_CEM
-
+# from .evi_clm import Evi_CLM
+# from .evi_cem import Evidential_CEM
+from .cbm import CBM
 
 def construct_model(config, concept_weight):
-    if config["arch"] == "evi_cem":
-        model = Evidential_CEM(
+    if config["arch"] == "cbm":
+        model = CBM(
             n_concepts=len(concept_weight),
             n_tasks=config["num_classes"],
             emb_size=config["emb_size"],
@@ -19,18 +19,18 @@ def construct_model(config, concept_weight):
             concept_weight=concept_weight,
             optimizer=config["optimizer"],
         )
-    elif config["arch"] == "evi_clm":
-        model = Evi_CLM(
-            n_concepts=len(concept_weight),
-            emb_size=config["emb_size"],
-            embedding_activation=config["embedding_activation"],
-            c_extractor_arch=config["c_extractor_arch"],
-            learning_rate=config["lr"],
-            weight_decay=config["weight_decay"],
-            train_with_c_gt=config["train_with_c_gt"],
-            concept_weight=concept_weight,
-            optimizer=config["optimizer"],
-        )
+    # elif config["arch"] == "evi_clm":
+    #     model = Evi_CLM(
+    #         n_concepts=len(concept_weight),
+    #         emb_size=config["emb_size"],
+    #         embedding_activation=config["embedding_activation"],
+    #         c_extractor_arch=config["c_extractor_arch"],
+    #         learning_rate=config["lr"],
+    #         weight_decay=config["weight_decay"],
+    #         train_with_c_gt=config["train_with_c_gt"],
+    #         concept_weight=concept_weight,
+    #         optimizer=config["optimizer"],
+    #     )
     else:
         raise NotImplementedError
 

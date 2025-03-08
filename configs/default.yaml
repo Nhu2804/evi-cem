@@ -1,5 +1,5 @@
 # overall
-project_name: evi-CEM
+project_name: CBM
 exp_name: default
 seed: 3
 device: 0
@@ -12,7 +12,7 @@ concept_weight: true
 train_with_c_gt: true
 
 # arch
-arch: evi_cem
+arch: cbm
 num_classes: 3
 emb_size: 16
 interven_prob: 0.0

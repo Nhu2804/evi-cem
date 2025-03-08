@@ -10,7 +10,7 @@ if __name__ == "__main__":
     config = get_config()
     pl.seed_everything(config["seed"])
     data_module = construct_data_module(config)
-    cem_model = construct_model(config, data_module.imbalance_weight)
+    cbm_model = construct_model(config, data_module.imbalance_weight)
     logger = init_logger(config)
     callbacks = construct_callbacks(config)
 
@@ -24,5 +24,5 @@ if __name__ == "__main__":
         callbacks=callbacks,
     )
 
-    trainer.fit(cem_model, datamodule=data_module)
-    trainer.test(cem_model, datamodule=data_module)
+    trainer.fit(cbm_model, datamodule=data_module)
+    trainer.test(cbm_model, datamodule=data_module)

@@ -5,7 +5,7 @@ exp_name: learn_cavs
 train_with_c_gt: false
 
 # arch
-arch: evi_clm
+arch: cbm
 
 # optimizer
 max_epochs: 15
